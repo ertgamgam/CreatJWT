@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TokenAssigner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="TokenAssigner" Height="315.6" Width="268.8">
     <Grid>
-        
+        <TextBox x:Name="tbIssuer" HorizontalAlignment="Left" Height="23" Margin="132,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Issuer" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
+        <Label Content="Expiration Date" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top"/>
+        <Label Content="Key" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbKey" HorizontalAlignment="Left" Height="23" Margin="132,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbType" HorizontalAlignment="Left" Height="23" Margin="132,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="HW ID" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbHwId" HorizontalAlignment="Left" Height="23" Margin="132,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Build JWT Key" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click"/>
+        <DatePicker x:Name="dpExpDate" HorizontalAlignment="Left" Margin="132,96,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Save Token" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" Width="242"/>
+        <TextBox x:Name="tbResult" HorizontalAlignment="Left" Height="23" Margin="10,219,0,0" TextWrapping="Wrap" Text="TOKEN" VerticalAlignment="Top" Width="242" TextAlignment="Center"/>
+        <Label Content="Audience" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAudience" HorizontalAlignment="Left" Height="23" Margin="132,39,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>

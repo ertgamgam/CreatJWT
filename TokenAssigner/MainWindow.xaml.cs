@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TokenAssigner
 {
@@ -23,6 +15,27 @@ namespace TokenAssigner
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var claims = new[] {
+                new Claim("hwId", tbHwId.Text),
+                new Claim("deviceType", tbType.Text)
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tbKey.Text));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(tbIssuer.Text,
+              tbAudience.Text,
+              claims,
+              expires: dpExpDate.SelectedDate,
+              signingCredentials: creds);
+
+            
+
+            tbResult.Text = new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
